@@ -1,0 +1,78 @@
+*{
+
+margin: 0;
+padding: 0;
+box-sizing: border-box;/*agr border aur padding add ho to content ka size change hojae pr box ka nhi*/
+}
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden; /* side me scroll ko mana kr deta h*/
+    overflow-y: auto;
+
+}
+.container{
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;/*margin ko left and right me equal kr dia jata h jisse content center me rahe*/ 
+    padding: 20px;
+}
+
+.container h1{/*specifies ki container k andar wale h1 ki baat kr rha hu*/
+
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+}
+.gallery{
+    display: flex;/* content horizontal me aa jaega*/
+    flex-wrap: wrap; /* content vertical form me aajaega*/
+    justify-content: space-between;
+}   
+.card{
+    width: 32%;/* bcz 3 item h to 32*3=96% and 4% inke beech ki spacing*/
+    /* eh lagega ki last wala card ki width jyada h pr wo image ki width h  */
+    position: relative;
+    /*kyuki hume text ko overlap krna h image h to text ko absolute and card ko relative */
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;/*image ko overflow krne se rokta h  */
+
+}
+.card img{
+    height: 100%;/*card ki jitni height h uska 100%*/
+    width: 100%;/*card ki jitni width h uska 100%*/
+    box-shadow: 0 0 20px #333;
+    filter: grayscale(100);
+    object-fit: cover;
+}
+
+.card:hover{
+    filter: drop-shadow(0 0 10px #333) ;/*gives shadow*/
+    transform: scale(1.07);/*halka sa zoom hoga*/
+    transition: 0.4s;/* jo bhi effect dala h wo slowly show hoga na ki ek dumse */
+
+}
+.card:hover img{
+    filter: grayscale(0%);/*color wapis aajata h*/
+
+} 
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    opacity: 0;/*Transparency means nhi dikhega*/
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg,rgba(0,0,0,0.5) 0%,rgba(255,255,255,0)); 
+    transition: 0.3s;
+}
+.card:hover figcaption{
+    opacity: 1;
+    transform: scale(1.03);
+}
